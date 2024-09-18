@@ -105,15 +105,13 @@
                         <div class="col-md-6 mb-3">
                             <label for="logo" class="font-weight-bold fs-2">Company Logo<span class="text-danger">
                                     *</span></label>
-                            <input type="file" class="form-control" id="logo" name="logo"
-                                accept="image/*">
+                            <input type="file" class="form-control" id="logo" name="logo">
                             <p class="form-text text-muted mb-0">File types: jpeg, png, jpg</p>
 
                         </div>
-
-                        <!-- Submit Button -->
-
                     </div>
+                    
+                    <!-- Submit Button -->
 
                     <div class="col-12">
                         <button type="submit" class="btn btn-success">Submit</button>

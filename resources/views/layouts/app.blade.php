@@ -24,6 +24,12 @@
 </head>
 
 <body>
+
+    {{-- sweet alert --}}
+    @include('sweetalert::alert')
+    {{-- sweet alert end --}}
+
+
     <div class="loader"></div>
     <div id="app">
         <div class="main-wrapper main-wrapper-1">

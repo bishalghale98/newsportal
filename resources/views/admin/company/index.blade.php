@@ -25,30 +25,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center">
-                                    1
-                                </td>
-                                <td>
-                                    <img src="{{ asset($company->logo) }}" width="120" alt="">
-                                </td>
-                                <td>
-                                    {{ $company->name }}
-                                </td>
-                                <td>
-                                    {{ $company->email }}
-                                </td>
-                                <td>
-                                    {{ $company->phone }}
-                                </td>
-                                <td>
-                                    <form action="{{ route('company.destroy', $company->id) }}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
+                            @if ($company)
+                                <tr>
+                                    <td class="text-center">
+                                        1
+                                    </td>
+                                    <td>
+                                        <img src="{{ asset($company->logo) }}" width="120" alt="">
+                                    </td>
+                                    <td>
+                                        {{ $company->name }}
+                                    </td>
+                                    <td>
+                                        {{ $company->email }}
+                                    </td>
+                                    <td>
+                                        {{ $company->phone }}
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('company.destroy', $company->id) }}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <a href="{{ route('company.edit', $company->id) }}" class="btn btn-success">Edit</a>
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>

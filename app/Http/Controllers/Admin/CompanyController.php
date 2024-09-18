@@ -67,6 +67,8 @@ class CompanyController extends Controller
 
         $company->save();
 
+        toast('Your Record Save Successfull!', 'success');
+
         return redirect()->route('company.index');
     }
 
@@ -85,7 +87,8 @@ class CompanyController extends Controller
     {
         // return to edit view company.edit
 
-        return view('admin.company.edit');
+        $company = Company::find($id);
+        return view('admin.company.edit', compact('company'));
     }
 
     /**
@@ -94,6 +97,39 @@ class CompanyController extends Controller
     public function update(Request $request, string $id)
     {
         // update data to database company.update
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'phone' => 'required|numeric|digits:10',
+            'pan' => 'required', // Adjust size according to your PAN format
+            'address' => 'required|string|max:500', // Adjust max length if needed
+            'reg_no' => 'required', // Adjust size and format if needed
+        ]);
+
+        $company = Company::find($id);
+        $company->name = $request->name;
+        $company->email = $request->email;
+        $company->phone = $request->phone;
+        $company->pan = $request->pan;
+        $company->address = $request->address;
+        $company->reg_no = $request->reg_no;
+        $company->facebook = $request->facebook;
+        $company->youtube = $request->youtube;
+
+        if ($request->hasFile('logo')) {
+            $file = $request->logo;
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images', $fileName);
+            $company->logo = 'images/' . $fileName;
+        }
+
+        $company->update();
+
+        toast('Your Record Updated Successfull!', 'success');
+
+
+        return redirect()->back();
     }
 
     /**
@@ -103,5 +139,11 @@ class CompanyController extends Controller
     {
         // delete data from database company.destroy
 
+        $company = Company::find($id);
+        $company->delete();
+
+        toast('Your Record Deleted Successfull!', 'success');
+
+        return redirect()->route('company.index');
     }
 }
