@@ -2,10 +2,10 @@
     <section>
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h5>Company</h5>
-                @if (!$company)
-                    <a href="{{ route('company.create') }}" class="btn btn-primary">Add+</a>
-                @endif
+                <h5>Advertise</h5>
+
+                <a href="{{ route('advertise.create') }}" class="btn btn-primary">Add New advertise +</a>
+
             </div>
 
 
@@ -17,48 +17,63 @@
                                 <th class="text-center">
                                     SN
                                 </th>
-                                <th>Company logo</th>
+                                <th>Image</th>
                                 <th>Company Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
+                                <th>Company Phone</th>
+                                <th>Link</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($company)
+                            @foreach ($advertises as $index => $advertise)
                                 <tr>
                                     <td class="text-center">
-                                        1
+                                        {{ ++$index }}
                                     </td>
+
                                     <td>
-                                        <img src="{{ asset($company->logo) }}" width="120" alt="">
+                                        <img src="{{ asset($advertise->image) }}" width="80" alt="">
+
                                     </td>
+
                                     <td>
-                                        {{ $company->name }}
+                                        {{ $advertise->company_name }}
+
                                     </td>
+
                                     <td>
-                                        {{ $company->email }}
+                                        {{ $advertise->phone }}
                                     </td>
+
                                     <td>
-                                        {{ $company->phone }}
+                                        {{ $advertise->link }}
                                     </td>
+
                                     <td>
-                                        <form action="{{ route('company.destroy', $company->id) }}" method="post">
+                                        @if ($advertise->status == 1)
+                                            <span class="badge bg-success text-white">Active</span>
+                                        @else
+                                            <span class="badge bg-danger text-white">In Active</span>
+                                        @endif
+                                    </td>
+
+                                    <td>
+                                        <form action="{{ route('advertise.destroy', $advertise->id) }}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <a href="{{ route('company.edit', $company->id) }}"
+                                            <a href="{{ route('advertise.edit', $advertise->id) }}"
                                                 class="btn btn-success">Edit</a>
-                                            <a href="{{ route('company.destroy', $company->id) }}"
+                                            <a href="{{ route('advertise.destroy', $advertise->id) }}"
                                                 class="btn btn-danger" data-confirm-delete="true">Delete</a>
                                         </form>
                                     </td>
                                 </tr>
-                            @endif
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-
         </div>
     </section>
 </x-app-layout>

@@ -140,10 +140,11 @@ class CompanyController extends Controller
         // delete data from database company.destroy
 
         $company = Company::find($id);
+        unlink(public_path($company->logo));
         $company->delete();
 
-        toast('Your Record Deleted Successfull!', 'success');
 
+        toast('Your Record Deleted Successfull!', 'success');
         return redirect()->route('company.index');
     }
 }
