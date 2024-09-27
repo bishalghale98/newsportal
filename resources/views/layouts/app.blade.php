@@ -21,6 +21,13 @@
     <link rel="stylesheet" href="/assets/bundles/datatables/datatables.min.css">
     <link rel="stylesheet" href="/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
     {{-- company index file end --}}
+
+
+    {{-- post  --}}
+    <link rel="stylesheet" href="/assets/bundles/summernote/summernote-bs4.css">
+    <link rel="stylesheet" href="/assets/bundles/select2/dist/css/select2.min.css">
+
+
 </head>
 
 <body>
@@ -125,12 +132,14 @@
     <!-- Page Specific JS File -->
     <script src="/assets/js/page/datatables.js"></script>
 
-    {{-- company index js file end --}}
+    {{-- post page  --}}
+    <script src="/assets/bundles/summernote/summernote-bs4.js"></script>
+    <script src="/assets/bundles/select2/dist/js/select2.full.min.js"></script>
+
+
 
 
     {{-- confirm delete pop up --}}
-
-
 
     <!-- Include SweetAlert JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -168,6 +177,8 @@
             });
         });
     </script>
+
+    {{-- confirm delete pop up end --}}
 
 
 

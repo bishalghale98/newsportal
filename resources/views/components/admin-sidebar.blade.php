@@ -22,7 +22,7 @@
                     data-feather="folder"></i><span>Category</span></a>
         </li>
         <li class="dropdown">
-            <a href="{{ route('dashboard') }}" class="nav-link"><i data-feather="edit-3"></i><span>Post</span></a>
+            <a href="{{ route('post.index') }}" class="nav-link"><i data-feather="edit-3"></i><span>Post</span></a>
         </li>
         <li class="dropdown">
             <a href="{{ route('advertise.index') }}" class="nav-link"><i

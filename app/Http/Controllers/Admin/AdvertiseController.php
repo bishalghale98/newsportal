@@ -127,12 +127,12 @@ class AdvertiseController extends Controller
     {
         // delete data from database company.destroy
 
-        $company = Company::find($id);
-        unlink(public_path($company->logo));
-        $company->delete();
+        $advertise = Advertise::find($id);
+        unlink(public_path($advertise->image));
+        $advertise->delete();
 
 
         toast('Your Record Deleted Successfull!', 'success');
-        return redirect()->route('company.index');
+        return redirect()->route('advertise.index');
     }
 }
