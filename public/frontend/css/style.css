@@ -1,0 +1,29 @@
+:root{
+    --primary : #D50707;
+    --mobileprimary: #8b2525;
+}
+
+.primary{
+    color: var(--primary);
+}
+
+.bg-primary{
+    background-color: var(--primary);
+}
+
+.bg-mobile-primary{
+    background-color: var(--mobileprimary);
+}
+
+.container {
+    margin: auto;
+    padding: 5px 10px;
+    max-width: 86%; /* Set a max-width for better alignment on larger screens */
+}
+
+
+
+
+.active{
+    color: #FFEF05;
+}
