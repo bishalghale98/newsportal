@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Usamamuneerchaudhary\Commentify\Providers\CommentifyServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,6 +13,9 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
+
+         // Register CommentifyServiceProvider
+         $this->app->register(CommentifyServiceProvider::class);
     }
 
     /**
