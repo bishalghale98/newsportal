@@ -17,18 +17,6 @@ Route::get('/category/{slug}', [PageController::class, 'category'])->name('cat')
 Route::get('/news/{id}', [PageController::class, 'news'])->name('news');
 
 
-Route::post('/news/{id}/comments', [CommentsController::class, 'store'])->name('comments.store');
-
-
-
-
-
-
-
-
-
-
-
 // Backend routes
 
 Route::middleware('auth')->group(function () {
