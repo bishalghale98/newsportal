@@ -1,29 +1,100 @@
-:root{
-    --primary : #D50707;
+:root {
+    --primary: #d50707;
     --mobileprimary: #8b2525;
 }
 
-.primary{
+.primary {
     color: var(--primary);
 }
 
-.bg-primary{
+.bg-primary {
     background-color: var(--primary);
 }
 
-.bg-mobile-primary{
+.bg-mobile-primary {
     background-color: var(--mobileprimary);
 }
 
 .container {
-    margin: auto;
-    padding: 5px 10px;
-    max-width: 86%; /* Set a max-width for better alignment on larger screens */
+    margin: auto; /* Center the container */
+    padding: 5px 10px; /* Add padding */
+    max-width: 100%; /* Allow full width on small screens */
+    width: 100%; /* Ensure the container takes full width */
 }
 
-
-
-
-.active{
-    color: #FFEF05;
+/* Responsive adjustments for medium devices (tablets) */
+@media (min-width: 640px) {
+    .container {
+        max-width: 90%; /* Limit max-width on medium devices */
+    }
 }
+
+/* Responsive adjustments for large devices (desktops) */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 86%; /* Set a narrower max-width on large screens */
+    }
+}
+
+/* Responsive adjustments for extra-large devices (large desktops) */
+@media (min-width: 1280px) {
+    .container {
+        max-width: 80%; /* Further limit max-width on extra-large screens */
+    }
+}
+
+.active {
+    color: #ffef05;
+}
+
+/* share button  */
+.a2a_kit {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    justify-content: center; /* Center the buttons */
+    gap: 10px; /* Space between buttons */
+    padding: 10px; /* Padding around the container */
+}
+
+.a2a_button_facebook,
+.a2a_button_email,
+.a2a_button_copy_link,
+.a2a_button_print,
+.a2a_button_telegram,
+.a2a_button_linkedin,
+.a2a_button_google_gmail {
+    display: inline-block;
+    width: 40px; /* Set a fixed width for each button */
+    height: 40px; /* Set a fixed height for each button */
+    border-radius: 50%; /* Round buttons */
+    text-align: center; /* Center the icon */
+    line-height: 40px; /* Center icon vertically */
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+.a2a_button_facebook:hover,
+.a2a_button_email:hover,
+.a2a_button_copy_link:hover,
+.a2a_button_print:hover,
+.a2a_button_telegram:hover,
+.a2a_button_linkedin:hover,
+.a2a_button_google_gmail:hover {
+    background-color: #ddd; /* Change background on hover */
+}
+
+/* Optional: Make buttons larger on larger screens */
+@media (min-width: 640px) {
+    .a2a_button_facebook,
+    .a2a_button_email,
+    .a2a_button_copy_link,
+    .a2a_button_print,
+    .a2a_button_telegram,
+    .a2a_button_linkedin,
+    .a2a_button_google_gmail {
+        width: 50px; /* Increase width */
+        height: 50px; /* Increase height */
+        line-height: 50px; /* Adjust line-height for centering */
+    }
+}
+
+/* share button end */

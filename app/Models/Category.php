@@ -17,6 +17,6 @@ class Category extends Model
      */
     public function posts(): BelongsToMany
     {
-        return $this->belongsToMany(post::class);
+        return $this->belongsToMany(post::class)->where('status', 'approved');
     }
 }

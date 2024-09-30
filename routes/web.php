@@ -8,14 +8,23 @@ use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 
 // Frontend Routes
 
-Route::get('/', [PageController::class,'home'])->name('home');
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/category/{slug}', [PageController::class, 'category'])->name('cat');
+Route::get('/news/{id}', [PageController::class, 'news'])->name('news');
+
+
+Route::post('/news/{id}/comments', [CommentsController::class, 'store'])->name('comments.store');
+
+
+
+
+
+
+
 
 
 

@@ -2,9 +2,12 @@
     <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
             <!-- Company Logo -->
-            <div class="flex justify-center md:justify-start">
-                <img src="{{ asset($company->logo) }}" width="200" alt="{{ $company->name }}" class="max-w-full h-auto">
-            </div>
+            <a href="{{ route('home') }}">
+                <div class="flex justify-center md:justify-start">
+                    <img src="{{ asset($company->logo) }}" width="200" alt="{{ $company->name }}"
+                        class="max-w-full h-auto">
+                </div>
+            </a>
 
             <!-- HR Line (Visible on small screens and hidden on large screens) -->
             <hr class="w-full border-y border-gray-400 md:hidden">

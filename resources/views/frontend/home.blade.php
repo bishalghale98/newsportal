@@ -4,11 +4,17 @@
         <div class="container">
             <div class="grid grid-cols-12 gap-3">
                 <!-- Latest news section -->
-                <div class="col-span-12 md:col-span-8">
-                    <img src="{{ asset($latest_news->image) }}" class="h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] w-full object-cover"
+                <a href="{{ route('news', $latest_news->id) }}" class="col-span-12 md:col-span-8">
+
+                    <img src="{{ asset($latest_news->image) }}"
+                        class="h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] w-full object-cover rounded-md shadow-md"
                         alt="{{ $latest_news->title }}">
                     <h1 class="text-xl sm:text-2xl md:text-3xl font-bold pt-4">{{ $latest_news->title }}</h1>
-                </div>
+                    <p class="text-gray-600 text-sm mt-1 line-clamp-2 py-2">
+                        {!! Str::limit(strip_tags($latest_news->description), 300) !!}
+                    </p>
+
+                </a>
 
                 <!-- Trending news section (hidden on small screens) -->
                 <div class="hidden md:block col-span-12 md:col-span-4">

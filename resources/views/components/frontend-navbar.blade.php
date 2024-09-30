@@ -23,19 +23,18 @@
 
 
             <!-- Menu List -->
-            <ul
-                class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 p-4 md:p-0 bg-primary  ">
+            <ul class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 p-4 md:p-0 bg-primary  ">
 
                 <li class="{{ Request::routeIs('home') ? 'active' : '' }}">
-                    <a href="{{ route('home') }}" class="block py-2 md:py-0 hover:text-gray-200">गृहपृष्ठ</a>
+                    <a href="{{ route('home') }}" class="block py-2 md:py-0 hover:active">गृहपृष्ठ</a>
                 </li>
 
 
 
                 @foreach ($categories as $category)
-                    <li class="{{ Request::routeIs('home') ? 'active' : '' }}">
-                        <a href="{{ route('home') }}"
-                            class="block py-2 md:py-0 hover:text-gray-200">{{ $category->nep_title }}</a>
+                    <li class="{{ Request::segment(2) == $category->slug ? 'active' : '' }}">
+                        <a href="{{ route('cat', $category->slug) }}"
+                            class="block py-2 md:py-0 hover:active">{{ $category->nep_title }}</a>
                     </li>
                 @endforeach
 
