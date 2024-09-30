@@ -57,10 +57,9 @@ class PageController extends Controller
 
         $company = Company::first();
 
-        $comments = Comment::where('news_id', $news->id)->where('approved', true)->get();
 
 
 
-        return view('frontend.news', compact('advertises', 'news', 'company', 'comments'));
+        return view('frontend.news', compact('advertises', 'news', 'company'));
     }
 }

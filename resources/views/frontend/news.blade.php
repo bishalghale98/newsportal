@@ -70,31 +70,6 @@
 
                         {{-- End share buttons --}}
 
-                        <!-- Comment Form -->
-                        <form action="{{ route('comments.store', $news->id) }}" method="POST">
-                            @csrf
-                            <div>
-                                <label for="name">Name</label>
-                                <input type="text" name="name" required>
-                            </div>
-                            <div>
-                                <label for="email">Email</label>
-                                <input type="email" name="email" required>
-                            </div>
-                            <div>
-                                <label for="comment">Comment</label>
-                                <textarea name="comment" required></textarea>
-                            </div>
-                            <button type="submit">Submit Comment</button>
-                        </form>
-
-                        <!-- Display Comments -->
-                       
-
-
-
-
-
 
                     </article>
                 </div>
