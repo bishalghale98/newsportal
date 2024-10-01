@@ -21,7 +21,7 @@
                                 class="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2 text-gray-600 text-xs sm:text-sm md:text-base">
                                 <i class="fa-regular fa-calendar-days text-indigo-500 text-base sm:text-lg"></i>
                                 <div class="flex items-center gap-1">
-                                    <span>प्रकाशित मितिः</span>
+                                    <span class=" font-semibold">प्रकाशित मितिः</span>
                                     <span class="date font-medium">{{ nepalidate($news->created_at) }}</span>
                                 </div>
                             </div>
@@ -30,20 +30,18 @@
                             <!-- Views -->
                             <div class="flex items-center gap-2 text-gray-600 text-sm md:text-base">
                                 <i class="fa-regular fa-newspaper text-indigo-500"></i>
-                                <span class="views font-medium">{{ $news->views }} पटक पढिएको</span>
+                                <span class="views font-semibold">{{ $news->views }} पटक पढिएको</span>
                             </div>
                         </header>
-
-
 
 
                         <!-- News Title -->
                         <h1 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 py-4">{{ $news->title }}</h1>
 
                         <!-- News Image -->
-                        <div class="mb-4 pb-4">
+                        <div class="mb-4 pb-4 ">
                             <img src="{{ asset($news->image) }}" alt="{{ $news->title }}"
-                                class="w-full h-auto object-cover rounded-lg shadow-md aspect-video">
+                                class="w-full h-auto object-cover rounded-lg shadow-md aspect-video border">
                         </div>
 
                         <!-- News Description -->
@@ -133,5 +131,22 @@
         </div>
 
     </section>
+
+
+
+
+
+
+    {{-- JavaScript for Browser Close Detection --}}
+    <script>
+        window.addEventListener("beforeunload", function(event) {
+            // Send a beacon request to increment views when the user leaves
+            navigator.sendBeacon("/increment-view", JSON.stringify({
+                news_id: '{{ $news->id }}',
+                _token: '{{ csrf_token() }}' // CSRF token for security
+            }));
+        });
+    </script>
+
 
 </x-frontend-layout>

@@ -16,6 +16,9 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/category/{slug}', [PageController::class, 'category'])->name('cat');
 Route::get('/news/{id}', [PageController::class, 'news'])->name('news');
 
+// Route for AJAX request to increment views
+Route::post('/increment-view', [PageController::class, 'incrementView']);
+
 
 // Backend routes
 
