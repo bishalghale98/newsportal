@@ -52,7 +52,7 @@
                         {{-- share buttons --}}
                         <!-- AddToAny BEGIN -->
                         <div
-                            class="a2a_kit a2a_kit_size_32 a2a_default_style flex flex-wrap justify-center items-center gap-2 p-2">
+                            class="a2a_kit a2a_kit_size_32 a2a_default_style flex flex-wrap justify-center items-center gap-2 p-2 mt-10">
                             <a class="a2a_dd hidden" href="https://www.addtoany.com/share"></a>
                             <a class="a2a_button_facebook" title="Share on Facebook"></a>
                             <a class="a2a_button_email" title="Share via Email"></a>

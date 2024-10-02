@@ -72,15 +72,6 @@
     transition: background-color 0.3s; /* Smooth hover effect */
 }
 
-.a2a_button_facebook:hover,
-.a2a_button_email:hover,
-.a2a_button_copy_link:hover,
-.a2a_button_print:hover,
-.a2a_button_telegram:hover,
-.a2a_button_linkedin:hover,
-.a2a_button_google_gmail:hover {
-    background-color: #ddd; /* Change background on hover */
-}
 
 /* Optional: Make buttons larger on larger screens */
 @media (min-width: 640px) {

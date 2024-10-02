@@ -36,7 +36,7 @@
     {{-- Home Section --}}
 
 
-    
+
 
 
     {{-- News By Category --}}
