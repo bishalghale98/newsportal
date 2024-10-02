@@ -38,7 +38,25 @@
 
 
 
+{{-- search --}}
 
+<script>
+    // On page load, retrieve the search term from localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const storedSearchTerm = localStorage.getItem('searchTerm');
+
+        if (storedSearchTerm) {
+            searchInput.value = storedSearchTerm;
+        }
+    });
+
+    // Save the search term to localStorage when the form is submitted
+    document.getElementById('searchForm').addEventListener('submit', function() {
+        const searchInput = document.getElementById('searchInput');
+        localStorage.setItem('searchTerm', searchInput.value);
+    });
+</script>
 
 
 
