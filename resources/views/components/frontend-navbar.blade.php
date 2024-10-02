@@ -11,7 +11,7 @@
 
         <!-- Menu Items -->
         <div id="menu"
-            class="absolute top-0 left-0 h-screen w-full bg-primary text-white transform -translate-x-full transition-transform duration-300 ease-in-out lg:relative lg:h-auto lg:w-auto lg:translate-x-0 lg:flex lg:items-center z-50 gap-4">
+            class="lg:flex lg:flex-wrap lg:justify-between absolute top-0 left-0 h-screen w-full bg-primary text-white transform -translate-x-full transition-transform duration-300 ease-in-out lg:relative lg:h-auto lg:w-auto lg:translate-x-0 lg:items-start z-50 gap-4">
 
             <!-- Close Button and Logo (Visible in Mobile View) -->
             <div class="flex justify-between items-center bg-primary p-4 lg:hidden">
@@ -22,28 +22,27 @@
                 </button>
             </div>
 
-            <hr class="w-full border-y border-gray-400 lg:hidden">
+            <hr class="w-full border-gray-400 lg:hidden">
 
             <!-- Menu List -->
-            <ul class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6 p-4 lg:p-0 w-full lg:w-auto">
-                <li
-                    class="{{ Request::routeIs('home') ? 'bg-[#ad1616] active px-3 py-2 rounded-md transition duration-300' : '' }}">
-                    <a href="{{ route('home') }}" class="block py-2 px-3 md:py-0 rounded-md font-bold">गृहपृष्ठ</a>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6  lg:p-0 w-full ">
+                <li class="{{ Request::routeIs('home') ? 'bg-[#ad1616] active shadow-lg transform hover:scale-105 transition-all duration-300 ease-out px-4 py-3 rounded-lg' : '' }}">
+                    <a href="{{ route('home') }}" class="block py-3 px-4 rounded-lg font-bold text-lg lg:text-base hover:bg-[#d12d2d] transition-colors duration-300 ease-in-out">गृहपृष्ठ</a>
                 </li>
+
                 @foreach ($categories as $category)
-                    <li
-                        class="{{ Request::segment(2) == $category->slug ? 'bg-[#ad1616] active px-3 py-2 rounded-md transition duration-300' : '' }}">
-                        <a href="{{ route('cat', $category->slug) }}"
-                            class="block py-2 px-3 lg:py-0 rounded-md font-semibold">{{ $category->nep_title }}</a>
-                    </li>
+                <li class="{{ Request::segment(2) == $category->slug ? 'bg-[#ad1616] active shadow-lg transform hover:scale-105 transition-all duration-300 ease-out px-4 py-3 rounded-lg' : '' }}">
+                    <a href="{{ route('cat', $category->slug) }}" class="block py-3 px-4 rounded-lg font-semibold text-lg lg:text-base hover:bg-[#d12d2d] transition-colors duration-300 ease-in-out">{{ $category->nep_title }}</a>
+                </li>
                 @endforeach
             </ul>
 
+
+
             <!-- Search Bar -->
             <form id="searchForm" action="{{ route('search') }}" method="GET"
-                class="flex items-center mt-4 lg:mt-0 gap-2 w-full lg:w-auto p-4 lg:p-0">
-                <input type="text" name="q" id="searchInput" placeholder="Search..."
-                    value="{{ $q ?? '' }}"
+                class="flex items-center mt-4 lg:mt-0 gap-2 w-full lg:w-auto p-4 lg:p-0 lg:flex-wrap">
+                <input type="text" name="q" id="searchInput" placeholder="Search..." value="{{ $q ?? '' }}"
                     class="border border-gray-300 rounded-lg px-4 py-2 w-full lg:w-48 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 text-black">
                 <button type="submit"
                     class="bg-blue-600 text-white hover:bg-blue-700 transition duration-300 rounded-lg px-4 py-2 shadow-md">
