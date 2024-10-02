@@ -19,6 +19,9 @@ Route::get('/news/{id}', [PageController::class, 'news'])->name('news');
 // Route for AJAX request to increment views
 Route::post('/increment-view', [PageController::class, 'incrementView']);
 
+Route::get('/search', [PageController::class, 'search'])->name('search');
+
+
 
 // Backend routes
 

@@ -36,6 +36,31 @@
     {{-- Home Section --}}
 
 
+    <form id="searchForm" action="{{ route('search') }}" method="GET">
+        <input type="text" name="q" id="searchInput" placeholder="Search..." value="{{ $q ?? '' }}">
+        <button type="submit">Search</button>
+    </form>
+
+
+    <script>
+        // On page load, retrieve the search term from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const storedSearchTerm = localStorage.getItem('searchTerm');
+
+            if (storedSearchTerm) {
+                searchInput.value = storedSearchTerm;
+            }
+        });
+
+        // Save the search term to localStorage when the form is submitted
+        document.getElementById('searchForm').addEventListener('submit', function() {
+            const searchInput = document.getElementById('searchInput');
+            localStorage.setItem('searchTerm', searchInput.value);
+        });
+    </script>
+
+
     {{-- News By Category --}}
     <section class="py-5">
         <div class="container">

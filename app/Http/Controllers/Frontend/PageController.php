@@ -82,4 +82,18 @@ class PageController extends Controller
 
         return response()->json(['success' => false], 404);
     }
+
+    public function search(Request $request)
+    {
+        $q = $request->q;
+
+        session(['search_query' => $q]);
+
+        $posts = Post::where('title', 'like', '%' . $q . '%')->orWhere('description', 'like', '%' . $q . '%')->paginate(10);
+
+
+        $advertises = Advertise::where('status', 1)->get();
+
+        return view('frontend.searchNews', compact('posts', 'advertises', 'q'));
+    }
 }
