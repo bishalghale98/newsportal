@@ -25,24 +25,52 @@
             <hr class="w-full border-gray-400 lg:hidden">
 
             <!-- Menu List -->
-            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6  lg:p-0 w-full ">
-                <li class="{{ Request::routeIs('home') ? 'bg-[#ad1616] active shadow-lg transform hover:scale-105 transition-all duration-300 ease-out px-4 py-3 rounded-lg' : '' }}">
-                    <a href="{{ route('home') }}" class="block py-3 px-4 rounded-lg font-bold text-lg lg:text-base hover:bg-[#d12d2d] transition-colors duration-300 ease-in-out">गृहपृष्ठ</a>
+            <ul class="lg:flex lg:flex-wrap lg:justify-between w-full p-4 lg:p-0">
+
+                <li>
+                    <ul
+                        class="{{ $categories->count() < 9 ? 'lg:flex lg:flex-wrap lg:flex-row gap-6 lg:p-0 w-full flex flex-col ' : 'flex flex-col lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:p-0 w-full' }} ">
+                        <!-- Home item -->
+                        <li
+                            class="{{ Request::routeIs('home') ? 'bg-[#ad1616] active shadow-lg transform hover:scale-105 transition-all duration-300 ease-out rounded-lg' : '' }}">
+                            <a href="{{ route('home') }}"
+                                class="block py-3 px-4 rounded-lg font-bold text-lg lg:text-base hover:bg-[#d12d2d] transition-colors duration-300 ease-in-out">गृहपृष्ठ</a>
+                        </li>
+
+                        <!-- Loop through categories -->
+                        @foreach ($categories as $category)
+                            <li
+                                class="{{ Request::segment(2) == $category->slug ? 'bg-[#ad1616] active shadow-lg transform hover:scale-105 transition-all duration-300 ease-out  rounded-lg' : '' }}">
+                                <a href="{{ route('cat', $category->slug) }}"
+                                    class="block py-3 px-4 rounded-lg font-semibold text-lg lg:text-base hover:bg-[#d12d2d] transition-colors duration-300 ease-in-out">{{ $category->nep_title }}</a>
+                            </li>
+                        @endforeach
                 </li>
 
-                @foreach ($categories as $category)
-                <li class="{{ Request::segment(2) == $category->slug ? 'bg-[#ad1616] active shadow-lg transform hover:scale-105 transition-all duration-300 ease-out px-4 py-3 rounded-lg' : '' }}">
-                    <a href="{{ route('cat', $category->slug) }}" class="block py-3 px-4 rounded-lg font-semibold text-lg lg:text-base hover:bg-[#d12d2d] transition-colors duration-300 ease-in-out">{{ $category->nep_title }}</a>
-                </li>
-                @endforeach
             </ul>
+            <li>
+                <!-- Search Bar -->
+                <form id="searchForm" action="{{ route('search') }}" method="GET"
+                    class="flex items-center justify-end mt-4 lg:mt-0 gap-2 w-full lg:w-auto p-4 lg:p-0 lg:flex-wrap {{ $categories->count() < 9 ? 'hidden lg:flex' : 'hidden' }}">
+                    <input type="text" name="q" id="searchInput" placeholder="Search..."
+                        value="{{ $q ?? '' }}"
+                        class="border border-gray-300 rounded-lg px-4 py-2 w-full lg:w-48 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 text-black">
+                    <button type="submit"
+                        class="bg-blue-600 text-white hover:bg-blue-700 transition duration-300 rounded-lg px-4 py-2 shadow-md">
+                        Search
+                    </button>
+                </form>
+            </li>
+            </ul>
+
 
 
 
             <!-- Search Bar -->
             <form id="searchForm" action="{{ route('search') }}" method="GET"
-                class="flex items-center mt-4 lg:mt-0 gap-2 w-full lg:w-auto p-4 lg:p-0 lg:flex-wrap">
-                <input type="text" name="q" id="searchInput" placeholder="Search..." value="{{ $q ?? '' }}"
+                class="inline-flex items-center justify-end mt-4 lg:mt-0 gap-2 w-full lg:w-auto p-4 lg:p-0 lg:flex-wrap  {{ $categories->count() < 9 ? 'hidden' : 'flex' }}">
+                <input type="text" name="q" id="searchInput" placeholder="Search..."
+                    value="{{ $q ?? '' }}"
                     class="border border-gray-300 rounded-lg px-4 py-2 w-full lg:w-48 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 text-black">
                 <button type="submit"
                     class="bg-blue-600 text-white hover:bg-blue-700 transition duration-300 rounded-lg px-4 py-2 shadow-md">
@@ -50,6 +78,7 @@
                 </button>
             </form>
         </div>
+
     </div>
 </nav>
 
