@@ -1,4 +1,4 @@
-<section class="py-3 bg-gray-200">
+<section class=" pt-3 bg-gray-200">
     <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
             <!-- Company Logo -->
@@ -22,22 +22,7 @@
 
             <!-- HR Line (Visible on small screens and hidden on large screens) -->
             <hr class="w-full border-y border-gray-400 md:hidden">
-
-
         </div>
-        <div class="lg:hidden">
-            {{-- Search Bar --}}
-            <form id="searchForm" action="{{ route('search') }}" method="GET"
-                class="flex items-center lg:mt-0 mt-4 lg:gap-2">
-                <input type="text" name="q" id="searchInput" placeholder="Search..."
-                    value="{{ $q ?? '' }}"
-                    class="border border-gray-300 rounded-lg px-4 py-2 w-full lg:w-48 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 text-black">
-                <button type="submit"
-                    class="bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-purple-600 hover:to-blue-500 transition duration-300 rounded-lg px-4 py-2 shadow-lg flex items-center justify-center space-x-1">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <span>Search</span>
-                </button>
-            </form>
-        </div>
+
     </div>
 </section>
