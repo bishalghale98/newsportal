@@ -55,6 +55,10 @@ Route::middleware('auth')->group(function () {
         Route::resource('/user', UserController::class)->names('user');
 
         Route::resource('/company', CompanyController::class)->names('company');
+
+
+        Route::get('/export-users', [UserController::class, 'export'])->name('export');
+
     });
 
 

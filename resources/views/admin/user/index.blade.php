@@ -4,7 +4,8 @@
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5>User</h5>
 
-                <a href="{{ route('user.create') }}" class="btn btn-primary">Add New user +</a>
+                <a href="{{ route('user.create') }}" class="btn btn-primary">Add New Users +</a>
+                <a href="{{ route('export') }}" class="btn btn-info">Export Users</a>
 
             </div>
 
