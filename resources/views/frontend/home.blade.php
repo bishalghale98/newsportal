@@ -1,4 +1,7 @@
-<x-frontend-layout>
+<x-frontend-layout :title="'Jawaaf News Portal | Home'">
+
+
+
     {{-- Home Section --}}
     <section class="pt-5">
         <div class="container">

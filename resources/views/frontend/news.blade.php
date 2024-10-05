@@ -1,4 +1,4 @@
-<x-frontend-layout>
+<x-frontend-layout :title="$news->title . ' | Jawaaf News'" :meta_keywords="$news->meta_keywords" :meta_description="$news->meta_description" :image="asset($news->image)">
 
     {{-- Article Section and advertisement section --}}
     <section class="py-5">

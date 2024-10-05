@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdvertiseController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -36,17 +37,26 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // company routes
-    Route::resource('/admin/company', CompanyController::class)->names('company');
 
     // category routes
     Route::resource('/admin/category', CategoryController::class)->names('category');
 
 
-    // advertise controller
-    Route::resource('/admin/advertise', AdvertiseController::class)->names('advertise');
 
-    // Post Controller route
-    Route::resource('/admin/post', PostController::class)->names('post');
+
+    Route::middleware('admin')->prefix('admin')->group(function () {
+        // advertise controller
+        Route::resource('/advertise', AdvertiseController::class)->names('advertise');
+
+        // Post Controller route
+        Route::resource('/post', PostController::class)->names('post');
+
+
+        Route::resource('/user', UserController::class)->names('user');
+
+        Route::resource('/company', CompanyController::class)->names('company');
+    });
+
 
 
     // get post put delete all route will made by resource..

@@ -1,4 +1,4 @@
-<x-frontend-layout>
+<x-frontend-layout :title="'Jawaaf News Portal | Category'">
     <section class="py-5">
         <div class="container mx-auto">
             <div class="grid grid-cols-12 gap-6">
@@ -22,7 +22,7 @@
                                     </h1>
                                 </a>
                                 <p class="text-gray-600 text-sm md:text-base mt-1 line-clamp-2 py-2 leading-relaxed">
-                                    {!! Str::limit(strip_tags($post->description), 100) !!}
+                                    {!! Str::limit(strip_tags($post->description), 100) !!} 
                                 </p>
                                 <small class="text-gray-500 block mt-2 py-2">
                                     <i class="fa-solid fa-calendar-days"></i>
