@@ -68,9 +68,6 @@
 
                         {{-- End share buttons --}}
 
-                        <livewire:comments :model="$news" />
-
-
                     </article>
                 </div>
 

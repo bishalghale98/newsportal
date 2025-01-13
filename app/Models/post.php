@@ -13,11 +13,6 @@ class Post extends Model
     use HasFactory;
     use Commentable;
 
-    /**
-     * The categories that belong to the post
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);

@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-            $table->unsignedBigInteger('views')->default(0); // Add a views column
-        });
+        // Check if the 'views' column already exists before adding it
+        if (!Schema::hasColumn('posts', 'views')) {
+            Schema::table('posts', function (Blueprint $table) {
+                $table->unsignedBigInteger('views')->default(0); // Add the 'views' column
+            });
+        }
     }
 
     /**
@@ -22,11 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-
-            $table->dropColumn('views'); // Rollback the views column
-
-        });
+        // Check if the 'views' column exists before attempting to drop it
+        if (Schema::hasColumn('posts', 'views')) {
+            Schema::table('posts', function (Blueprint $table) {
+                $table->dropColumn('views'); // Remove the 'views' column
+            });
+        }
     }
 };

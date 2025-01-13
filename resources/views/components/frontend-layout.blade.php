@@ -27,7 +27,7 @@
     {{-- for social media --}}
     <meta property="og:title" content="{{ $title ?? 'Jawaaf News Portal' }}" />
     <meta property="og:description" content="{{ $meta_description ?? 'Jawaaf News Portal' }}" />
-    <meta property="og:image" content="{{ $image ?? asset("$company->logo") }}" />
+    <meta property="og:image" content="{{ $company && $company->logo ? asset($company->logo) : asset('default-image.jpg') }}" />
     <meta property="og:url" content="{{ $url ?? url()->current() }}" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="{{ $title ?? 'Jawaaf News Portal' }}" />

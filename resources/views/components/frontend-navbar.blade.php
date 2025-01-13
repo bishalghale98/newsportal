@@ -25,7 +25,9 @@
             <!-- Mobile Menu Toggle -->
             <div class="flex items-center justify-between lg:hidden">
                 <!-- Logo (Visible in Mobile View) -->
-                <a href="{{ route('home') }}" class="text-white text-lg font-bold">{{ $company->name }}</a>
+                <a href="{{ route('home') }}"
+                    class="text-white text-lg font-bold">{{ $company->name ?? 'Default Company Name' }}
+                </a>
                 <button id="menu-toggle" class="text-white focus:outline-none">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
@@ -38,7 +40,9 @@
                 <!-- Close Button and Logo (Visible in Mobile View) -->
                 <div class="flex justify-between items-center bg-primary p-4 lg:hidden">
                     <!-- Close Button -->
-                    <a href="{{ route('home') }}" class="text-white text-lg font-bold">{{ $company->name }}</a>
+                    <a href="{{ route('home') }}"
+                        class="text-white text-lg font-bold">{{ $company->name ?? 'Default Company Name' }}
+                    </a>
                     <button id="menu-close" class="px-4 py-2 text-white">
                         <i class="fa-solid fa-times text-2xl"></i>
                     </button>

@@ -4,8 +4,8 @@
             <!-- Company Logo -->
             <a href="{{ route('home') }}">
                 <div class="flex justify-center md:justify-start">
-                    <img src="{{ asset($company->logo) }}" width="200" alt="{{ $company->name }}"
-                        class="max-w-full h-auto">
+                    <img src="{{ asset($company->logo ?? 'default-logo.jpg') }}" width="200" alt="{{ $company->name ?? 'Default Company Name' }}" class="max-w-full h-auto">
+
                 </div>
             </a>
 
